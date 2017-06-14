@@ -1,0 +1,18 @@
+/* Home Page CSS */
+
+.homeText {
+  color: white;
+}
+
+.planetDiv {
+  display: block;
+}
+
+.header > span {
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.planetDiv span {
+  color: white;
+}
