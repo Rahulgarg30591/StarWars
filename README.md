@@ -7,7 +7,7 @@ Project is written in JS ES6 specification.
 
 The server call to the local server for data is done using Reqwest from Client End.
 
-The API call to the Swapi API is done using Node fetch.
+The API call to the Swapi API is done using Node fetch inside server folder.
 
 ## Get started
 
