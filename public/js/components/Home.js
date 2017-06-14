@@ -144,7 +144,7 @@ class Home extends React.Component {
 
     // Fetches the right result component on the basis of state flag.
     getOutputComponent() {
-        if (!this.state.searchTag) {
+        if (!this.state.searchTag || this.state.loading) {
             return null;
         }
 

@@ -3,7 +3,11 @@ A simple login and search application implementing Swapi API built using Redux F
 
 I have used Gulp as a automation task runner and WebPack as a module bundler.
 
-Project is written in JS ES6 speciffication.
+Project is written in JS ES6 specification.
+
+The server call to the local server for data is done using Reqwest from Client End.
+
+The API call to the Swapi API is done using Node fetch.
 
 ## Get started
 
@@ -30,7 +34,12 @@ Project is written in JS ES6 speciffication.
 
     ```sh
     gulp
-    # gulp --prod
+    ```
+
+    To start the app in production mode
+
+    ```sh
+    gulp --prod
     ```
 
 5. Load the app in your browser: [http://localhost:4000](http://localhost:4000/).
