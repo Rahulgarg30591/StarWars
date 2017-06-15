@@ -7,13 +7,11 @@ import {Provider} from 'react-redux';
 
 import allReducers from './js/reducers/index';
 
-// CSS imports
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import '../node_modules/font-awesome/css/font-awesome.css';
-
 import LoginContainer from './js/containers/LoginContainer';
 import HomeContainer from './js/containers/HomeContainer';
 
+// CSS imports
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
 // Custom CSS
 import './assets/style/login.css';
 import './assets/style/home.css';

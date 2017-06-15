@@ -12,7 +12,6 @@ const src = 'public';
 const config = {
     port: 4000,
     paths: {
-        html: src +'/StarWars.html',
         baseDir: PROD ? 'build' : 'dist',
         entry: src + '/CalivaApp.js',
     },

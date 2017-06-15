@@ -31,7 +31,14 @@ module.exports.dev = {
     module: {
         loaders: [
             {
-                test: /\.js$/, include: path.join(__dirname, 'public'),
+                test: /\.js$/, include: [
+                    path.join(__dirname, 'public'),
+                    path.join(__dirname, 'test'),
+                ],
+                loaders: ['babel'],
+            },
+            {
+                test: /\.js$/, include: path.join(__dirname, 'test'),
                 loaders: ['babel'],
             },
             {
@@ -39,15 +46,12 @@ module.exports.dev = {
                 loader: 'style!css?sourceMap',
             },
             {
-                test: /\.scss$/,
-                loader: 'style!css?sourceMap!resolve-url!sass?sourceMap',
-            },
-            {
                 test: /\.(svg|png|jpe?g|gif)(\?\S*)?$/,
                 loader: 'url?limit=100000&name=images/[name].[ext]',
             },
-            {test: /\.(eot|woff|woff2|ttf)(\?\S*)?$/,
-                loader: 'url?limit=100000&name=fonts/[name].[ext]'},
+            {   test: /\.(eot|woff|woff2|ttf)(\?\S*)?$/,
+                loader: 'url?limit=100000&name=fonts/[name].[ext]',
+            },
         ],
     },
     sassLoader: {
@@ -82,7 +86,10 @@ module.exports.prod = {
     module: {
         loaders: [
             {
-                test: /\.js$/, include: path.join(__dirname, 'public'),
+                test: /\.js$/, include: [
+                    path.join(__dirname, 'public'),
+                    path.join(__dirname, 'test'),
+                ],
                 loaders: ['babel'],
             },
             {
@@ -90,19 +97,13 @@ module.exports.prod = {
                 loader: ExtractTextPlugin.extract('style', 'css?sourceMap'),
             },
             {
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('style', 'css?sourceMap!resolve-url!sass?sourceMap'),
-            },
-            {
                 test: /\.(svg|png|jpe?g|gif)(\?\S*)?$/,
                 loader: 'url?limit=100000&name=images/[name].[ext]',
             },
-            {test: /\.(eot|woff|woff2|ttf)(\?\S*)?$/,
-                loader: 'url?limit=100000&name=fonts/[name].[ext]'},
+            {   test: /\.(eot|woff|woff2|ttf)(\?\S*)?$/,
+                loader: 'url?limit=100000&name=fonts/[name].[ext]',
+            },
         ],
-    },
-    sassLoader: {
-        includePaths: [path.resolve('./public')],
     },
     resolve: {
         root: [path.resolve('./public')],

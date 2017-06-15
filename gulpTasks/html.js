@@ -18,7 +18,7 @@ const config = {
 };
 
 // Copies our index.html file from the app folder to either the dist
-//or build folder, depending on the node environment
+//or build folder, depending on the node environment.
 gulp.task('html', () => {
     return gulp.src(config.paths.html)
     .pipe(cond(PROD, insertLines({
