@@ -9,6 +9,8 @@ The server call to the local server for data is done using Reqwest from Client E
 
 The API call to the Swapi API is done using Node fetch inside server folder.
 
+## [Demo Video](https://screencast.com/t/GrUjh2QX3jPy)
+
 ## Get started
 
 1. Ensure that you have Node.js v6.9.1 or later installed and activated through [nvm](https://github.com/creationix/nvm):

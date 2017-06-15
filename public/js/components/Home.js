@@ -103,6 +103,7 @@ class Home extends React.Component {
             const secondsDiff = (new Date().getTime() - firstCallTime)/1000;
 
             if (secondsDiff < 60) {
+                alert("Only Luke Skywalker can have more than 15 searches in a minute.");
                 return false;
             } else {
                 searchQueue.splice(searchQueueFront,1);
