@@ -1,6 +1,6 @@
-import { checkStatus } from '../helper/helper.js';
-import fetch from 'node-fetch';
+import { fetchData } from '../helper/fetchHelper.js';
 
+// Server Side implementation of GET API of Search with the express object.
 export default function attachSearchAPI(app) {
     app.get('/api/search', function(req, res) {
         var searchTag = encodeURIComponent(req.param('param'));
@@ -12,35 +12,26 @@ export default function attachSearchAPI(app) {
             },
         };
 
-        return fetch(url, options)
-            .then(checkStatus)
-            .then(data => data.json())
-            .then(data => {
-                if (data.results &&
-                    data.results.length > 0) {
-                    res.send({
-                        status: {
-                            code: 1000,
-                            message: 'Search is Complete.',
-                        },
-                        data: data.results,
-                    });
-                    return;
-                }
+        return fetchData(url, options, (data) => {
+            if (data.results &&
+                data.results.length > 0) {
                 res.send({
                     status: {
-                        code: 2000,
-                        message: 'No result.',
+                        code: 1000,
+                        message: 'Search is Complete.',
                     },
-                    data: null,
+                    data: data.results,
                 });
                 return;
-            })
-            .catch((err) => {
-                const errorCallbackObject = {status: {}};
-                errorCallbackObject.status.code = err.message.split(' ')[0];
-                errorCallbackObject.status.message = err.message;
-                res.send(errorCallbackObject);
+            }
+            res.send({
+                status: {
+                    code: 2000,
+                    message: 'No result.',
+                },
+                data: null,
             });
+            return;
+        },  {status: {}});
     });
 }
