@@ -13,9 +13,8 @@ export function postJson(obj, successHandler, errorHandler) {
     return reqwest({
         url: obj.url,
         method: "POST",
-        type: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify(obj.data),
+        contentType: obj.contentType,
+        data: obj.data,
     })
     .then(successHandler, errorHandler);
 }
